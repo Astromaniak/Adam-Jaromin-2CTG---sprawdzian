@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprawdzian Adam Jaromin 2CTG</title>
+    <style>
+        .html{
+
+        }
+        .menu{
+            background-color:#99ffff;
+            height:100px;
+            width:100%;
+            margin:none;
+            text-align:center;
+        }
+        .okienko1{
+            float:left;
+            margin:auto;
+            width:20%;
+            background-color:red;
+            height:150px;
+            padding-top:30px;
+        }
+        .okienko2{
+            float:left;
+            margin:auto;
+            width:20%;
+            background-color:orange;
+            height:150px;
+            padding-top:30px;
+        }
+        .okienko3{
+            float:left;
+            margin:auto;
+            width:20%;
+            background-color:red;
+            height:150px;
+            padding-top:30px;
+        }
+        .okienko4{
+            float:left;
+            margin:auto;
+            width:20%;
+            background-color:orange;
+            height:150px;
+            padding-top:30px;
+        }
+        .okienko5{
+            float:left;
+            margin:auto;
+            width:20%;
+            background-color:red;
+            height:150px;
+            padding-top:30px;
+        }
+        .srodek{
+
+        }
+        .srodeklewa{
+            background-color:#66ff66;
+            height:600px;
+            width:33%;
+            float:left;
+        }
+        .srodekprawa{
+            background-color:#66cc66;
+            height:600px;
+            width:67%;
+            float:right;
+        }
+        .stopka{
+            background-color:yellow;
+            height:200px;
+            width:100%;
+            text-align:center;
+            float:left;
+        }
+        button{
+            background-color: 	#ADEAEA; 
+            border-radius: 5px;
+            border-color:blue;
+            color: 	#236B8E;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+ #countdown-container {
+    display: inline-block; 
+    width: 300px; 
+    margin: 20px 0; 
+    border-radius: 5px; 
+    background: #1d81af; 
+}
+#countdown {
+    font-family: "Fira Sans", sans-serif; 
+    display: inline-block; 
+    padding: 30px; 
+    background: #1d81af;
+    color: white; 
+}
+
+#countdown span {
+    font-weight: bold; 
+    font-size: 30px; 
+}
+img
+{
+    padding-top: 110px;
+    border-radius: 3px;
+    border-color:red;
+}
+    </style>
+    <script>
+let days = 0; 
+let hours = 1; 
+let minutes = 0; 
+let seconds = 0; 
+
+
+let totalSeconds =
+days * 60 * 60 * 24 + hours * 60 * 60 + minutes * 60 + seconds;
+
+
+let tempSeconds = totalSeconds;
+
+
+const convert = (value, inSeconds) => {
+if (value > inSeconds) {
+    let x = value % inSeconds;
+    tempSeconds = x;
+    return (value - x) / inSeconds;
+} else {
+    return 0;
+}
+};
+
+
+const setSeconds = (s) => {
+document.querySelector("#seconds").textContent = s + "s";
+};
+
+
+const setMinutes = (m) => {
+document.querySelector("#minutes").textContent = m + "m";
+};
+
+
+const setHours = (h) => {
+document.querySelector("#hours").textContent = h + "h";
+};
+
+
+const setDays = (d) => {
+document.querySelector("#days").textContent = d + "d";
+};
+
+
+var x = setInterval(() => {
+
+if (totalSeconds <= 0) {
+    clearInterval(x);
+}
+setDays(convert(tempSeconds, 24 * 60 * 60));
+setHours(convert(tempSeconds, 60 * 60));
+setMinutes(convert(tempSeconds, 60));
+setSeconds(tempSeconds == 60 ? 59 : tempSeconds);
+totalSeconds--;
+tempSeconds = totalSeconds;
+}, 1000);
+
+var i = 0; 
+var zdj = [];
+var time = 2000;
+     
+zdj[0] = "1.jpg";
+zdj[1] = "2.jpg";
+zdj[2] = "3.jpg";
+zdj[3] = "4.jpg";
+
+function prezentacja()
+{
+    document.slider.src = zdj[i];
+
+    if(i < zdj.length - 1)
+    {
+      i++; 
+    } 
+    else
+    { 
+        i = 0;
+    }
+    setTimeout("prezentacja()", time);
+}
+window.onload=prezentacja;
+
+    </script>
+</head>
+<body>
+    <div class="menu">
+        <div class="okienko1"><div class="slider"><button>slider</button></div></div>
+        <div class="okienko2"><div class="animacje"><button>animacje</button></div></div>
+        <div class="okienko3"><div class="obliczenia"><button>obliczenia</button></div></div>
+        <div class="okienko4"><div class="obiekt"><button>obiekt</button></div></div>
+        <div class="okienko5"><div class="zegar">            
+            <div id="countdown-container">
+            <div id="countdown">
+                <span id="days"></span> : <span id="hours"></span> :
+                <span id="minutes">0m</span> : <span id="seconds">0s</span>
+            </div>
+        </div></div></div>
+    </div>
+    <div class="srodek">
+
+        <div class="srodeklewa">
+        </div>
+        <div class="srodekprawa"><center><img name="slider" width="500px" height="250px"> </div>
+    </div>
+    <div class="stopka">&copy;Adam Jaromin</div>
+</body>
+</html>
+
+
+
